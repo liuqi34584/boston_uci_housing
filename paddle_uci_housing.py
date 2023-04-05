@@ -29,7 +29,6 @@ optimizer = fluid.optimizer.SGDOptimizer(learning_rate=0.78)
 opts = optimizer.minimize(avg_cost)
 test_program = fluid.default_main_program().clone(for_test=True)
 
-
 use_cuda = False    
 place = fluid.CUDAPlace(0) if use_cuda else fluid.CPUPlace()
 exe = fluid.Executor(place)              #创建一个Executor实例exe
@@ -37,7 +36,6 @@ exe.run(fluid.default_startup_program()) #Executor的run()方法执行startup_pr
 
 # 定义输入数据维度
 feeder = fluid.DataFeeder(place=place, feed_list=[x, y])  # feed_list:向模型输入的变量表或变量表名
-
 
 iter=0
 iters=[]
